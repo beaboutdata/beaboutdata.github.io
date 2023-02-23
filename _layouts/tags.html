@@ -13,23 +13,6 @@ layout: archive
   {% endif %}
 {% endfor %}
 
-<div id="tags">
-<!--      <h1>Articles by a tag</h1> -->
-	{% for tag in site.tags %}	
-	<div id="{{tag[0]}}" style="display:none">
-	<h1>Articles by the tag "{{tag[0]}}"</h1>
-	<br/>
-<!-- 	<h2>Tag: "{{tag[0]}}"</h2> -->
-	<table class="sublist">
-		{% for f in tag[1] %}
-		<tr><td><a href="{{f.url}}">{{ f.title }}</a></td><td>{{ f.date |date: "%Y/%m/%d"}}</td></tr>
-		{% endfor %}
-	</table>
-	</div>	
-	{% endfor %}
-</div>
-
-
 <!--
 <ul class="taxonomy__index">
   {% for i in (1..tags_max) reversed %}
@@ -51,7 +34,7 @@ layout: archive
 <!--  {% for tag in site.tags %} -->
 <!--    {% if tag[1].size == i %} -->
    <!--   <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section"> -->
-  <!--      <h2 class="archive__subtitle">{{ tag[0] }}</h2> -->
+        <h2 class="archive__subtitle">{{ tag[0] }}</h2> 
  <!--       {% for f in tag[1] %}
           <div class="entries-{{ entries_layout }}">
             {% for post in tag.last %}
