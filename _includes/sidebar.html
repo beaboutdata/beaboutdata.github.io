@@ -15,5 +15,36 @@
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
   {% endif %}
+    <div>
+      		<h4>Tags</h4>
+		<ul class="sidebar_tags">
+			{% for tag in site.tags %}
+<!-- 			<li> -->
+				<a onclick="redirect('/tags#{{ tag[0] }}')">
+<!-- 				<a href="/blog/tag/testtag#{{ tag[0] }}"> -->
+				{% if page.tags contains tag[0] %}
+					<b>{{tag[0]}}</b>
+				{% else %}
+					{{ tag[0] }}
+				{% endif %}
+				</a>
+				<sup>[{{ tag[1].size }}]</sup>
+
+<!-- 			</li> -->
+			{% endfor %}
+		</ul>
+		<hr/>
+    </div>
   </div>
 {% endif %}
+
+<script type="text/javascript">
+
+	function redirect(url){
+		//alert(url);
+		window.history.pushState('test', "Title", url);
+		//window.location.href=url;
+		window.location.reload();
+	}
+	
+</script>
